@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,13 +15,17 @@ public class GameController : MonoBehaviour
     // Dữ liệu game
     private float totalTime = 300f;
     private float currentTime;
-    private int score = 0;
-    private int currentIndex;
+    public static int currentIndex;
+    private static int currentScene = 1; 
     private bool anyCubeClicked = false;
 
-    [Header("Components")]
+    // Tham chiếu đến Canvas con
+    [SerializeField] private GameObject gameCanvas; // Canvas cho màn chơi
+    [SerializeField] private GameObject homeCanvas; // Canvas cho trang chủ
+
     private List<CubeController> cubeControllers = new List<CubeController>();
-    private CanvasController canvasController;
+    private GameCanvasController gameCanvasController;
+    private HomeCanvasController homeCanvasController;
 
     void Awake()
     {
@@ -33,23 +36,24 @@ public class GameController : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject); 
+        DontDestroyOnLoad(gameObject);
 
         // Khởi tạo
-        canvasController = FindAnyObjectByType<CanvasController>();
+        gameCanvasController = FindObjectOfType<GameCanvasController>();
+        homeCanvasController = GetComponentInChildren<HomeCanvasController>();
         currentTime = totalTime;
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
     void OnDestroy()
     {
-        // Hủy đăng ký sự kiện để tránh rò rỉ bộ nhớ
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
     void Start()
     {
-        canvasController = FindObjectOfType<CanvasController>();
-        if (canvasController != null)
+        if (gameCanvasController != null)
             UpdateUI();
 
         InitializeGameState();
@@ -57,19 +61,20 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        UpdateDataGame();
         if (currentState == GameState.Playing)
         {
             UpdateGameLogic();
-        }       
+        }
         else if (currentState == GameState.NextLevel)
         {
-            StartCoroutine(LoadNextLevel()); 
-            SetState(GameState.Playing); 
+            StartCoroutine(LoadNextLevel());
+            SetState(GameState.Playing);
         }
     }
 
     private void UpdateGameLogic()
-    {        
+    {
         if (!anyCubeClicked)
         {
             foreach (CubeController cube in cubeControllers)
@@ -77,18 +82,18 @@ public class GameController : MonoBehaviour
                 if (cube.IsClickCube())
                 {
                     anyCubeClicked = true;
-                    score += 10; // Tăng điểm khi nhấp cube
                     UpdateUI();
                     break;
                 }
             }
         }
-        else {
+        else
+        {
             if (currentTime > 0f)
             {
                 if (GameObject.FindGameObjectsWithTag("Cube").Length == 0)
                 {
-                    canvasController.ShowNextLevelPanel(true);
+                    gameCanvasController.ShowNextLevelPanel(true);
                     currentTime -= 0;
                 }
                 else
@@ -104,12 +109,20 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void UpdateDataGame()
+    {
+        gameCanvasController.UpdateCoins($"{GameData.totalCoin}");
+
+        homeCanvasController.UpdateCoins($"{GameData.totalCoin}");
+        homeCanvasController.UpdateNameLevelButton(currentScene);
+    }
     private void UpdateUI()
     {
-        if (canvasController != null)
+        if (gameCanvasController != null)
         {
-            canvasController.UpdateTimeDisplay(currentTime, totalTime);
-            canvasController.UpdateLevelText($"{currentIndex}");
+            gameCanvasController.UpdateTimeDisplay(currentTime, totalTime);
+            gameCanvasController.UpdateLevelText($"{currentIndex}");
+            gameCanvasController.ShowSettingsPanel(false);
         }
     }
 
@@ -123,6 +136,7 @@ public class GameController : MonoBehaviour
                 break;
             case GameState.Playing:
                 Time.timeScale = 1;
+                UpdateDataGame();
                 break;
             case GameState.GameOver:
                 Time.timeScale = 0;
@@ -136,99 +150,107 @@ public class GameController : MonoBehaviour
 
     private IEnumerator LoadNextLevel()
     {
-        if (canvasController != null)
+        if (gameCanvasController != null)
         {
-            canvasController.SpawnCoins();
-            while (!canvasController.AreAllCoinsDestroyed())
+            gameCanvasController.SpawnCoins();
+            while (!gameCanvasController.AreAllCoinsDestroyed())
             {
                 yield return null;
             }
-            canvasController.ShowNextLevelPanel(false);
+            gameCanvasController.ShowNextLevelPanel(false);
         }
 
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (int.TryParse(sceneName.Replace("Level", ""), out int currentLevel))
+        int nextIndex = currentIndex + 1;
+        if (nextIndex < SceneManager.sceneCountInBuildSettings) 
         {
-            currentIndex = currentLevel; // Gán currentIndex từ tên scene
-            int nextIndex = currentIndex + 1;
-            if (nextIndex <= SceneManager.sceneCountInBuildSettings) // Sử dụng <= để bao gồm index 0
-            {
-                SceneManager.LoadScene($"Level{nextIndex}");
-                yield return null;
-                InitializeGameState();
-            }
-            else
-            {
-                SetState(GameState.GameOver); // Kết thúc game nếu hết scene
-            }
+            SceneManager.LoadScene(nextIndex);
+            GameData.AddCoin(40);
+            yield return null;
+            InitializeGameState();
         }
         else
         {
-            Debug.LogError($"Scene name '{sceneName}' does not match expected format (e.g., 'Level1'). Defaulting to GameOver.");
             SetState(GameState.GameOver);
         }
     }
+
     private void InitializeGameState()
     {
-        anyCubeClicked = false; 
-        currentTime = totalTime; 
+        anyCubeClicked = false;
+        currentTime = totalTime;
+        cubeControllers.Clear();
         cubeControllers = new List<CubeController>(FindObjectsByType<CubeController>(FindObjectsSortMode.None));
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (int.TryParse(sceneName.Replace("Level", ""), out int newIndex))
-        {
-            currentIndex = newIndex; // Gán giá trị từ tên scene
-        }
-        else
-        {
-            Debug.LogWarning($"Failed to parse scene name '{sceneName}' to index. Setting currentIndex to 0.");
-            currentIndex = 0; // Giá trị mặc định
-        }
-        SetState(GameState.Playing);         
-        UpdateUI(); 
+        SetState(GameState.Playing);
+        UpdateUI();
     }
+
     public void NextLevel()
     {
         SetState(GameState.NextLevel);
     }
-    private IEnumerator ResetLevel()
+
+    private IEnumerator LoadScene(int currentIndex)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(currentIndex);
         yield return null;
         InitializeGameState();
     }
+
     public void ResetLevelButton()
     {
-        StartCoroutine(ResetLevel());
+        StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex));
     }
+
+    public void CombackLevelButton()
+    {
+        StartCoroutine(LoadScene(currentScene));
+    }
+
     // Public methods for UI interaction
-    public void OnPauseButton()
+    public void OpenSettingsButton()
     {
         if (currentState == GameState.Playing)
         {
             SetState(GameState.Paused);
-            canvasController.ShowSettingsPanel(true);
+            gameCanvasController.ShowSettingsPanel(true);
         }
     }
 
-    public void OnResumeButton()
+    public void ExitSettingsButton()
     {
         if (currentState == GameState.Paused)
         {
             SetState(GameState.Playing);
-            canvasController.ShowSettingsPanel(false);
+            gameCanvasController.ShowSettingsPanel(false);
         }
     }
 
+    public void HomeButton()
+    {
+        currentScene = currentIndex;
+        SceneManager.LoadScene(0);       
+    }
+
     // Getters for UI or other scripts
-    public int GetScore() => score;
     public int GetLevel() => currentIndex;
     public float GetCurrentTime() => currentTime;
     public GameState GetState() => currentState;
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"Scene {scene.name} loaded. Initializing game state...");
-        InitializeGameState(); // Chạy mỗi khi load scene
-        canvasController = FindObjectOfType<CanvasController>(); // Cập nhật lại tham chiếu Canvas
+        InitializeGameState();
+        string currentScene = scene.name;
+        if (currentScene == "Home")
+        {
+            if (homeCanvas != null) homeCanvas.SetActive(true);
+            if (gameCanvas != null) gameCanvas.SetActive(false);
+        }
+        else if (currentScene.StartsWith("Level"))
+        {
+            if (gameCanvas != null) gameCanvas.SetActive(true);
+            if (homeCanvas != null) homeCanvas.SetActive(false);
+        }
+        UpdateUI();
+        currentIndex = SceneManager.GetActiveScene().buildIndex;
     }
 }

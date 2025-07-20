@@ -1,17 +1,17 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class CanvasManager : MonoBehaviour
 {
-    [SerializeField] private GameObject canvasPrefab; // Prefab Canvas chứa CanvasController
-
-    void Awake()
+    [SerializeField] private GameObject gameController;
+    private void Awake()
     {
-        // Spawn Canvas nếu chưa có trong scene
-        if (canvasPrefab != null && FindObjectOfType<CanvasController>() == null)
+        if (gameController != null && GameObject.Find("GameController") == null)
         {
-            GameObject canvasObj = Instantiate(canvasPrefab);
+            GameObject canvasObj = Instantiate(gameController);
             canvasObj.name = "GameController";
-            DontDestroyOnLoad(canvasObj); // Giữ Canvas qua các scene (tùy chọn)
+            DontDestroyOnLoad(canvasObj); // Giữ Canvas qua các scene (tùy chọn)            
         }
     }
 }

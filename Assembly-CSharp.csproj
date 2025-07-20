@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0829F0E6-E7A3-D224-6A6A-231449432922}</ProjectGuid>
+    <ProjectGuid>{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,8 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\CanvasController.cs" />
+    <Compile Include="Assets\Scripts\GameData.cs" />
     <Compile Include="Assets\Scripts\CubeController.cs" />
+    <Compile Include="Assets\Scripts\HomeCanvasController.cs" />
+    <Compile Include="Assets\Scripts\GameCanvasController.cs" />
     <Compile Include="Assets\Scripts\ColorMathBlock.cs" />
     <Compile Include="Assets\Scripts\CanvasManager.cs" />
   </ItemGroup>

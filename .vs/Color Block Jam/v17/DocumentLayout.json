@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|D:\\Documents\\GitHub\\Color Block Jam\\assets\\scripts\\canvascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\canvascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|D:\\Documents\\GitHub\\Color Block Jam\\assets\\scripts\\homecanvascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\homecanvascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|D:\\Documents\\GitHub\\Color Block Jam\\assets\\scripts\\cubecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cubecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|D:\\Documents\\GitHub\\Color Block Jam\\assets\\scripts\\gamecanvascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamecanvascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|d:\\documents\\github\\color block jam\\assets\\scripts\\canvasmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\canvasmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|D:\\Documents\\GitHub\\Color Block Jam\\assets\\scripts\\colormathblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\colormathblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|D:\\Documents\\GitHub\\Color Block Jam\\assets\\scripts\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5584CDF1-7C58-29B1-DEAD-BAF1E118DD4E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,34 +30,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CanvasManager.cs",
-              "DocumentMoniker": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\CanvasManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CanvasManager.cs",
-              "ToolTip": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\CanvasManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CanvasManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T07:50:36.677Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CanvasController.cs",
-              "DocumentMoniker": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\CanvasController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CanvasController.cs",
-              "ToolTip": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\CanvasController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CanvasController.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAAACUAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-03T10:30:28.628Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -66,35 +40,61 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameController.cs",
               "ToolTip": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\GameController.cs",
               "RelativeToolTip": "Assets\\Scripts\\GameController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAACkAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAABIAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-04T12:04:44.857Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CubeController.cs",
-              "DocumentMoniker": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\CubeController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CubeController.cs",
-              "ToolTip": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\CubeController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CubeController.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwBIAAABAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "HomeCanvasController.cs",
+              "DocumentMoniker": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\HomeCanvasController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HomeCanvasController.cs",
+              "ToolTip": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\HomeCanvasController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HomeCanvasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T05:00:45.706Z",
+              "WhenOpened": "2025-07-19T07:56:12.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameCanvasController.cs",
+              "DocumentMoniker": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\GameCanvasController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameCanvasController.cs",
+              "ToolTip": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\GameCanvasController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameCanvasController.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-19T07:15:30.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CanvasManager.cs",
+              "DocumentMoniker": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\CanvasManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CanvasManager.cs",
+              "ToolTip": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\CanvasManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CanvasManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-19T07:46:57.186Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ColorMathBlock.cs",
-              "DocumentMoniker": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\ColorMathBlock.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ColorMathBlock.cs",
-              "ToolTip": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\ColorMathBlock.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ColorMathBlock.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAuAAAAAAAAAA==",
+              "Title": "GameData.cs",
+              "DocumentMoniker": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\GameData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameData.cs",
+              "ToolTip": "D:\\Documents\\GitHub\\Color Block Jam\\Assets\\Scripts\\GameData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T13:55:00.858Z"
+              "WhenOpened": "2025-07-19T03:42:42.583Z"
             }
           ]
         }
